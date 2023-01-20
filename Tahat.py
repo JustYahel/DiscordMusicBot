@@ -6,7 +6,7 @@ from discord.ext import commands
 bot = commands.Bot(command_prefix="?", intents=discord.Intents.all())
 bot.remove_command('help')
 # noinspection SpellCheckingInspection
-token = "MTA2NDk1MjcyNTAzODcwNjcwOA.Gc6_rf.rWkAALK_sB7gLup3TEKMeZxmXC3Ops1jKgTLdc"
+token = ""
 
 voice_clients = {}
 
