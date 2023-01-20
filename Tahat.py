@@ -6,7 +6,7 @@ from discord.ext import commands
 bot = commands.Bot(command_prefix="?", intents=discord.Intents.all())
 bot.remove_command('help')
 # noinspection SpellCheckingInspection
-token = ""
+token = "" # Place Token In Here
 
 voice_clients = {}
 
@@ -185,7 +185,7 @@ async def skip(ctx):
 
 @bot.event
 async def on_message(ctx):
-    if ctx.channel.id != 1065361986638073916:
+    if ctx.channel.name != "music-is-fun":
         return
     if ctx.author == bot.user:
         return
