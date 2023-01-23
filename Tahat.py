@@ -6,7 +6,7 @@ from discord.ext import commands
 bot = commands.Bot(command_prefix="?", intents=discord.Intents.all())
 bot.remove_command('help')
 # noinspection SpellCheckingInspection
-token = "" # Place Token In Here
+token = "MTA2NDk1MjcyNTAzODcwNjcwOA.GtD7Cm.oaKxKMbV76U8VOTqsZNkQV5wKHScewJ3oEjgSQ"
 
 voice_clients = {}
 
@@ -95,10 +95,6 @@ async def help(ctx):
 @bot.command()
 async def play(ctx, arg: str = None):
     if await check_in_vc(ctx):
-        return
-
-    if voice_clients[ctx.guild.id].is_playing():
-        await ctx.send("Already Playing A Song!", delete_after=5)
         return
 
     if arg is None:
@@ -192,15 +188,6 @@ async def on_message(ctx):
 
     await ctx.delete()
     await bot.process_commands(ctx)
-
-
-@bot.event
-async def del_ctx():
-    await bot.wait_until_ready()
-    channel = bot.get_channel(1065361986638073916)
-    while not bot.is_closed():
-        await channel.purge(limit=3)
-        await asyncio.sleep(60)
 
 
 bot.run(token)
